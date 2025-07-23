@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  reactor:
+    netty:
+      event-loop-group:
+        boss: 2
+        worker: 8
+
+third-party:
+  apis:
+    api1:
+      url: https://jsonplaceholder.typicode.com
+      timeout: 5000
+      max-connections: 100
+      retry-max-attempts: 3
+      retry-delay-ms: 500
+    api2:
+      url: https://jsonplaceholder.typicode.com
+      timeout: 6000
+      max-connections: 150
+      retry-max-attempts: 3
+      retry-delay-ms: 500
+
+service:
+  concurrency: 10
+
+logging:
+  level:
+    root: INFO
+    com.example.reactive: INFO
+    reactor.netty: INFO
